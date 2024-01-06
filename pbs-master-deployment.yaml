@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pbs-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pbs-master
+  template:
+    metadata:
+      labels:
+        app: pbs-master
+    spec:
+      containers:
+      - name: pbs-master
+        image: my12345/openpbs:latest
+        ports:
+        - containerPort: 15001

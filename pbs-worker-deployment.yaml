@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pbs-worker
+spec:
+  replicas: 2  # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: pbs-worker
+  template:
+    metadata:
+      labels:
+        app: pbs-worker
+    spec:
+      containers:
+      - name: pbs-worker
+        image: my12345/openpbs:latest
